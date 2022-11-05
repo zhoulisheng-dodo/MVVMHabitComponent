@@ -31,7 +31,16 @@ public class RouterFragmentPath {
     public static class Msg {
         private static final String MSG = "/msg";
         /*消息*/
-        public static final String PAGER_MSG = MSG + "/msg/Msg";
+        public static final String PAGER_MSG = MSG + "/Msg";
+    }
+
+    /**
+     * 地图组件
+     */
+    public static class Map {
+        private static final String MAP = "/map";
+        /*消息*/
+        public static final String PAGER_MAP = MAP + "/Map";
     }
 
     /**

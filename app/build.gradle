@@ -4,12 +4,15 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
+
+        multiDexEnabled true
+
         applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         //阿里路由框架配置
         javaCompileOptions {
             annotationProcessorOptions {
@@ -48,6 +51,9 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // fix dex max file < 65536
+    compile 'com.android.support:multidex:1.0.3'
+
     //宿主项目中判断组件是否需要独立运行
     if (isBuildModule.toBoolean()) {
         //组件独立运行时，宿主项目直接依赖基础库，避免编译错误
@@ -63,6 +69,8 @@ dependencies {
         implementation project(':module-work')
         //消息模块
         implementation project(':module-msg')
+        //地图模块
+        implementation project(':module-map')
         //用户模块
         implementation project(':module-user')
     }

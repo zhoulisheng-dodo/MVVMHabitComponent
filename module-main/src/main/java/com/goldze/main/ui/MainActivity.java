@@ -1,9 +1,9 @@
 package com.goldze.main.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.content.ContextCompat;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -51,11 +51,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
         Fragment homeFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
         Fragment workFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Work.PAGER_WORK).navigation();
         Fragment msgFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Msg.PAGER_MSG).navigation();
+        Fragment mapFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Map.PAGER_MAP).navigation();
         Fragment meFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.User.PAGER_ME).navigation();
         mFragments = new ArrayList<>();
         mFragments.add(homeFragment);
         mFragments.add(workFragment);
         mFragments.add(msgFragment);
+        mFragments.add(mapFragment);
         mFragments.add(meFragment);
         if (homeFragment != null) {
             //默认选中第一个
@@ -70,6 +72,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
                 .addItem(R.mipmap.yingyong, "首页")
                 .addItem(R.mipmap.huanzhe, "工作")
                 .addItem(R.mipmap.xiaoxi_select, "消息")
+                .addItem(R.mipmap.xiaoxi_select, "地图")
                 .addItem(R.mipmap.wode_select, "我的")
                 .setDefaultColor(ContextCompat.getColor(this, R.color.textColorVice))
                 .build();

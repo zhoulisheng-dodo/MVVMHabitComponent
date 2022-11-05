@@ -1,12 +1,10 @@
 package com.goldze.home.ui.viewmodel;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
-import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.base.ItemViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
-import me.goldze.mvvmhabit.bus.event.SingleLiveEvent;
 
 /**
  * Created by goldze on 2018/7/18.
